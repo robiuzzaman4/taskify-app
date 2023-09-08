@@ -20,7 +20,7 @@ const TaskCard = ({ _id, title, description, date, priority, assignedTo, status 
     }
 
     return (
-        <div className="w-full bg-white shadow hover:shadow-md transition rounded-lg p-8 flex flex-col gap-4">
+        <div className="w-full bg-white shadow transition rounded-lg p-8 flex flex-col gap-4">
             <div className="flex items-center justify-between gap-4">
                 <div>
                     {

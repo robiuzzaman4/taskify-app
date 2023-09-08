@@ -37,7 +37,7 @@ const ManageTasks = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {/* pending tasks */}
                         <div className="flex flex-col gap-8">
-                            <div className="w-full bg-white h-16 rounded-lg p-4">
+                            <div className="w-full bg-white shadow h-16 rounded-lg p-4">
                                 <h1 className="text-xl font-bold">Pending Tasks: {pendingTasks?.length}</h1>
                             </div>
 
@@ -52,7 +52,7 @@ const ManageTasks = () => {
 
                         {/* in progress tasks */}
                         <div className="flex flex-col gap-8">
-                            <div className="w-full bg-white h-16 rounded-lg p-4">
+                            <div className="w-full bg-white shadow h-16 rounded-lg p-4">
                                 <h1 className="text-xl font-bold">In Progress Tasks: {inProgressTasks?.length}</h1>
                             </div>
                             <div className="grid gap-8 md:max-h-[600px] md:overflow-y-auto" id="tasksContainer">
@@ -66,7 +66,7 @@ const ManageTasks = () => {
 
                         {/* complete tasks */}
                         <div className="flex flex-col gap-8">
-                            <div className="w-full bg-white h-16 rounded-lg p-4">
+                            <div className="w-full bg-white shadow h-16 rounded-lg p-4">
                                 <h1 className="text-xl font-bold">Completed Tasks: {completeTasks?.length}</h1>
                             </div>
                             <div className="grid gap-8 md:max-h-[600px] md:overflow-y-auto" id="tasksContainer">
