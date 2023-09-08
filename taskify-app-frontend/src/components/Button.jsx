@@ -1,4 +1,4 @@
-const Button = ({ children, type, onClick, disabled, color, size, fullwidth }) => {
+const Button = ({ children, type, onClick, disabled, color, size, fullwidth, className }) => {
     return (
         <button
             onClick={onClick}
@@ -10,6 +10,7 @@ const Button = ({ children, type, onClick, disabled, color, size, fullwidth }) =
                 ${size === "sm" && "px-2 py-1 text-sm"}
                 ${fullwidth && "w-full"}
                 ${disabled && "opacity-50"}
+                ${className && className}
             `}>
             {children}
         </button>

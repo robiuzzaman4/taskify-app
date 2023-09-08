@@ -1,21 +1,13 @@
-import { useEffect, useState } from "react";
 import Container from "../components/Container";
 import useAuth from "../hooks/useAuth";
+import useAllUsers from "../hooks/useAllUsers";
 
 const MyProfile = () => {
-    const [getAllUsers, setAllUsers] = useState([]);
     const { user } = useAuth();
+    const { allUsers } = useAllUsers();
 
-    useEffect(() => {
-        fetch(`https://taskify-app-backend.vercel.app/api/users`)
-            .then((res) => res.json())
-            .then((data) => {
-                setAllUsers(data.users);
-            })
-    }, [])
-
-    const getCurrentUserData = getAllUsers.find((singleUser) => singleUser.email === user.email);
-    console.log(getCurrentUserData);
+    const getCurrentUserData = allUsers?.find((singleUser) => singleUser?.email === user?.email);
+    console.log("getCurrentUserData", getCurrentUserData);
 
     return (
         <section className="pt-32 pb-16">

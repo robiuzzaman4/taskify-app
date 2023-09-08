@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import useAuth from "../hooks/useAuth";
+import useAllUsers from "../hooks/useAllUsers";
 
 
 const SignUp = () => {
@@ -12,7 +13,9 @@ const SignUp = () => {
     const { userRegister, updateUser } = useAuth();
     const navigate = useNavigate();
 
-    const onSubmit = data => {
+    const { refetch } = useAllUsers();
+
+    const onSubmit = (data) => {
         const name = data.name;
         const username = data.username;
         const email = data.email;
@@ -20,14 +23,13 @@ const SignUp = () => {
         const photo = data.photo;
         const bio = data.bio;
 
-
         userRegister(email, password)
             .then((result) => {
                 const user = result.user;
                 updateUser(user, name, photo)
                     .then(() => {
                         // save user data
-                        fetch(`http://localhost:5000/api/user/signup`, {
+                        fetch(`https://taskify-app-backend.vercel.app/api/users`, {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
@@ -39,6 +41,7 @@ const SignUp = () => {
                                 if (data) {
                                     toast.success("Register Successfull!");
                                     navigate("/sign-in");
+                                    refetch();
                                     console.log(data);
                                 }
                             })
@@ -48,8 +51,10 @@ const SignUp = () => {
             })
             .catch((error) => {
                 console.log(error.message);
+                if (error.message === "Firebase: Error (auth/email-already-in-use).") {
+                    return toast.error("Already This Email is Used!");
+                }
             })
-        // console.log(name, username, email, password, photo, bio);
     };
 
     return (
