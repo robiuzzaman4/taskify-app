@@ -1,6 +1,6 @@
 # Taskify App - Task Managment Web Application
 
-![Taskify App](https://i.ibb.co/d2kxdV5/Screenshot-346.png)
+![Taskify App](https://i.ibb.co/BZZSTRx/Screenshot-345.png)
 
 ## Used Technologies:
 - JavaScript

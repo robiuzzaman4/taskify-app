@@ -12,8 +12,6 @@ const MyProfile = () => {
 
     const getCurrentUserData = allUsers?.find((singleUser) => singleUser?.email === user?.email);
     const myTasks = allTasks?.filter((task) => task?.assignedTo === getCurrentUserData?.name);
-    // console.log(myTasks);
-    // console.log("getCurrentUserData", getCurrentUserData);
 
     return (
         <section className="pt-32 pb-16">
@@ -27,7 +25,7 @@ const MyProfile = () => {
                         <div className="grid -gap-1">
                             <h1 className="text-xl font-bold flex items-center gap-1">
                                 <span>{getCurrentUserData?.name}</span>
-                                <HiBadgeCheck/>
+                                <HiBadgeCheck />
                             </h1>
                             <p>
                                 @{getCurrentUserData?.username}
@@ -41,17 +39,15 @@ const MyProfile = () => {
                         <h1 className="text-2xl font-bold">
                             My Tasks:
                         </h1>
-                        <div className="grid lg:grid-cols-2 gap-8">
-                            {
-                                <div className="grid gap-8">
-                                    {
-                                        myTasks?.map((task) => (
-                                            <TaskCard key={task._id} {...task} />
-                                        ))
-                                    }
-                                </div>
-                            }
-                        </div>
+                        {
+                            <div className="grid lg:grid-cols-2 gap-8">
+                                {
+                                    myTasks?.map((task) => (
+                                        <TaskCard key={task._id} {...task} />
+                                    ))
+                                }
+                            </div>
+                        }
                     </div>
                 </div>
             </Container>
